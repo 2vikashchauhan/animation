@@ -1,0 +1,207 @@
+:root {
+  --page-1-color: steelblue;
+  --page-2-color: tan;
+  --page-3-color: teal;
+  --page-4-color: slateblue;
+  --animate-speed: 2s;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Page Colors */
+#page-1 { background: var(--page-1-color) }
+#page-2 { background: var(--page-2-color) }
+#page-3 { background: var(--page-3-color) }
+#page-4 { background: var(--page-4-color) }
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 4rem;
+}
+
+.page h1 {
+  font-size: 4rem;
+  line-height: 1.2;
+  margin: 1rem;
+}
+
+.page p {
+  font-size: 1.3rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #f4f4f4;
+  color: #333;
+  text-decoration: none;
+  border: none;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in;
+}
+.btn1 {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #f4f4f4;
+  color: #333;
+  text-decoration: none;
+  border: none;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in;
+}
+.btn3 {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #f4f4f4;
+  color: #333;
+  text-decoration: none;
+  border: none;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease-in;
+}
+
+.btn-dark {
+  background: #333;
+  color: #fff;
+}
+
+
+
+/* Page Animation */
+#page-1 h1 {
+  transform: translateY(-1200px);
+  animation: heading var(--animate-speed) forwards ease-in;
+}
+
+#page-1 p {
+  transform: translateX(-1800px);
+  animation: text var(--animate-speed) forwards ease-in 1s;
+}
+
+/* Keyframes */
+@keyframes heading {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes text {
+  to {
+    transform: translateX(0);
+  }
+}
+
+#page-2 h1 {
+  backface-visibility: visible !important;
+  animation-name: flipyByX;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+  color: red;
+}
+
+#page-2 p {
+  transform: translatey(1800px);
+  animation: page2 var(--animate-speed) forwards ease-out 0.5s;
+}
+
+@keyframes page2 {
+  to {
+    transform: translatey(0);
+  }
+}
+
+
+
+@keyframes flipyByX {
+  0% {
+    transform: perspective(400px) rotateX(90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotateX(-20deg);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(400px) rotateX(10deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(400px) rotateX(-5deg);
+  }
+  to {
+    transform: perspective(400px);
+  }
+}
+
+
+#page-3 h1 {
+  animation: rotateInDownLeft var(--animate-speed) forwards ease-in 1s;
+  transform-origin: center;
+}
+
+#page-3 p {
+  animation: rotateInDownLeft var(--animate-speed) forwards ease-in-out 1s;
+  transform-origin: center;
+}
+
+#page-4 h1 {
+  animation: fadeIn var(--animate-speed) forwards ease-in 2s;
+}
+
+#page-4 p {
+  animation: fadeIn var(--animate-speed) forwards ease-in-out 2s;
+
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateInDownLeft {
+  0% {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+.btn:hover,
+.btn:focus {
+  box-shadow: inset 0 -3.25em 0 0 green;
+}
+
+.btn1:hover,
+.btn1:focus {
+  box-shadow: inset 10em 0 0 0 red;
+}
+
+.btn3:hover,
+.btn3:focus {
+  box-shadow: 
+    inset -5em 0 0 0 aqua,
+    inset 5em 0 0 0 aqua;  
+}
